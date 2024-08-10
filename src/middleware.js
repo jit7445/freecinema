@@ -24,7 +24,6 @@ export function middleware(request) {
 export const config = {
   matcher: [
     '/',
-    '/profile/:path*',
     '/login',
     '/signup',
     '/verifyemail'

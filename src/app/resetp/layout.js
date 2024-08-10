@@ -23,9 +23,6 @@ export default function RootLayout({ children }) {
           <Providers>
            
        
-                {/* <Header />
-                <Navbar className="sm:hidden lg:block" />
-                <SearchBox /> */}
           
             {children}
           </Providers>
