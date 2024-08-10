@@ -34,14 +34,13 @@ export default function Singup() {
     try {
       const response = await axios.post("/api/users/signup", user);
       // Handle successful login (e.g., redirect to dashboard)
-      console.log("Signup successful", response.data);
+
       router.push('/afterlinksend')
       setloading(false);
     } catch (err) {
       setError("Signup failed. Please try again.");
       toast.error(err.meassage);
 
-      console.error(" signup error", err);
       setloading(false);
     }
   };
@@ -51,7 +50,7 @@ export default function Singup() {
   };
 
   return (
-    <div className="flex justify-center items-center h-screen mt-4">
+    <div className="flex justify-center items-center h-screen mt-4 ">
     <Card color="transparent" shadow={false} className="max-w-md w-full p-8 bg-cyan-50 rounded-lg shadow-lg ">
       <Typography variant="h4" color="blue-gray">
        {loading? "processing..." :"singup"}

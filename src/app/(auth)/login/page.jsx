@@ -22,7 +22,7 @@ export default function Login() {
     try {
       const response = await axios.post('/api/users/login', user);
       // Handle successful login
-      console.log('Login successful', response.data);
+
       setloading(false)
       toast.success("login success")
       
@@ -32,7 +32,7 @@ export default function Login() {
     } catch (err) {
       setError('Login failed. Please try again.');
       setloading(false)
-      console.error('Login error', err);
+   
     }
   };
 
@@ -61,7 +61,7 @@ export default function Login() {
               name="email"
               value={user.email}
               onChange={handleChange}
-              className="!border-t-blue-gray-200 focus:!border-t-gray-900 text-white w-full"
+              className="!border-t-blue-gray-200 focus:!border-t-gray-900  w-full"
               labelProps={{
                 className: "before:content-none after:content-none",
               }}
@@ -78,7 +78,7 @@ export default function Login() {
               name="password"
               value={user.password}
               onChange={handleChange}
-              className="!border-t-blue-gray-200 focus:!border-t-gray-900 text-white w-full"
+              className="!border-t-blue-gray-200 focus:!border-t-gray-900  w-full"
               labelProps={{
                 className: "before:content-none after:content-none",
               }}
@@ -90,7 +90,7 @@ export default function Login() {
           </Button>
           <Link href="/resetpasswordlink" className="text-center block mt-4">Forgot Password</Link>
           <Typography color="gray" className="text-center font-normal mt-8">
-            Don't have an account?{" "}
+            Dont have an account?{" "}
             <Link href="/signup" className="font-medium text-gray-900">
               Sign Up
             </Link>

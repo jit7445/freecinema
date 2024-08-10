@@ -33,7 +33,7 @@ export async function POST(request) {
     });
 
   } catch (err) {
-    console.error("Error:", err.message);
+
     // Return an error response
     return NextResponse.json({
       message: "Internal Server Error",

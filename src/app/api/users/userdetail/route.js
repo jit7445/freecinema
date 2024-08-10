@@ -7,26 +7,25 @@ connectDB();
 
 export async function GET(request) {
   try {
-  
     const userId = await getDataFromToken(request);
-    console.log("userId:", userId);
+
 
     if (!userId) {
-      return NextResponse.json({ message: 'User not authenticated' }, { status: 401 });
+      return NextResponse.json({ message: 'User not authenticated', success: false }, { status: 401 });
     }
 
-   
     const user = await User.findById(userId).select('-password');
     if (!user) {
-      return NextResponse.json({ message: 'User not found' }, { status: 404 });
+      return NextResponse.json({ message: 'User not found', success: false }, { status: 404 });
     }
 
     return NextResponse.json({
       message: 'User found',
       data: user,
+      success: true,
     });
   } catch (err) {
-    console.error(err);
-    return NextResponse.json({ message: 'Internal server error' }, { status: 500 });
+
+    return NextResponse.json({ message: 'Internal server error', success: false }, { status: 500 });
   }
 }

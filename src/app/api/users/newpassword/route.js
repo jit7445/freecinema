@@ -10,7 +10,7 @@ export async function POST(request) {
     
     // Parse JSON body from the request
     const { Token, password } = await request.json();
-    console.log("Received forgot password token:", Token,password);
+   
     
     // Find the user with the provided token
     const user = await User.findOne({
@@ -22,8 +22,7 @@ export async function POST(request) {
     if (!user) {
       return new Response("Invalid or expired token", { status: 401 });
     }
-    
-    console.log("User found:", user);
+
     
     // Hash the new password
     const salt = await bcryptjs.genSalt(10); // Corrected: use genSalt instead of salt

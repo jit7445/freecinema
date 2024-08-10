@@ -8,7 +8,7 @@ connectDB();
 export async function POST(request) {
   try {
     const { name, email, password } = await request.json();
-    console.log("userdata:", { name, email, password });
+
 
     // Check if user already exists
     const existingUser = await User.findOne({ email });
@@ -32,7 +32,7 @@ export async function POST(request) {
       user: savedUser
     }, { status: 201 });
   } catch (error) {
-    console.error(error);
+
     return NextResponse.json({ message: 'Internal server error' }, { status: 500 });
   }
 }

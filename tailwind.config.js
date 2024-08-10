@@ -52,7 +52,7 @@ export default withMT({
           DEFAULT: "hsl(var(--card))",
           foreground: "hsl(var(--card-foreground))",
         },
-       'sidecolor':"#758694"
+       'sidecolor':"#607274"
       },
       borderRadius: {
         lg: "var(--radius)",

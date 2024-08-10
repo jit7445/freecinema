@@ -10,7 +10,7 @@ export async function POST(request) {
     // Parse JSON body from the request
     const { Token } = await request.json();
 
-    console.log("Received token:", Token);
+
 
     // Find the user with the provided token
     const user = await User.findOne({
@@ -23,7 +23,7 @@ export async function POST(request) {
       return new Response("Invalid or expired token", { status: 401 });
     }
 
-    console.log("User found:", user);
+   
 
     // Update user verification status
     user.isVerified = true; // Fixed typo here
@@ -38,7 +38,7 @@ export async function POST(request) {
     });
 
   } catch (err) {
-    console.error("Error:", err.message);
+  
     return new Response(err.message, { status: 500 });
   }
 }

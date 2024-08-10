@@ -51,7 +51,7 @@ export default async function Home({ searchParams }) {
       </div>
     );
   } catch (error) {
-    console.error('error:', error);
+
     return (
       <div>
         <p>Error fetching data.</p>
