@@ -1,31 +1,29 @@
 import { NextResponse } from 'next/server'
 
- 
-
 export function middleware(request) {
   const path = request.nextUrl.pathname
 
-  const isPublicPath = path === '/login' || path === '/signup' || path === '/verifyemail'
+  const isPublicPath = path === '/' || path === '/login' || path === '/signup' || path === '/verifyemail'
 
   const token = request.cookies.get('token')?.value || ''
 
-  if(isPublicPath && token) {
+  if (!isPublicPath && !token) {
+    // If user is not logged in and tries to access a non-public path, redirect to home page
     return NextResponse.redirect(new URL('/', request.nextUrl))
   }
 
-  if (!isPublicPath && !token) {
-    return NextResponse.redirect(new URL('/login', request.nextUrl))
-  }
-    
+  // If user is logged in, allow access to any path
+  return NextResponse.next()
 }
 
- 
-// See "Matching Paths" below to learn more
 export const config = {
   matcher: [
     '/',
     '/login',
     '/signup',
-    '/verifyemail'
+    '/verifyemail',
+    '/search',
+    '/movie',
+    // Add other restricted paths here
   ]
 }

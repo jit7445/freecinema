@@ -121,7 +121,7 @@ export default function Singup() {
           fullWidth
           disabled={buttonDisable}
         >
-          Sign In
+          Sign Up
         </Button>
         <Typography color="gray" className="mt-4 text-center font-normal">
           Already have an account?{" "}
