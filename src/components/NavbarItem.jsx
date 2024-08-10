@@ -2,7 +2,8 @@
 import Link from 'next/link';
 import { useSearchParams } from 'next/navigation';
 import React, { Suspense } from 'react';
-import Loading from '@/app/loading';
+// import Loading from '@/app/loading';
+import Loading from '@/app/Loading';
 export default function NavbarItem({ title, param }) {
   const searchParams = useSearchParams();
   const genre = searchParams.get('genre');
